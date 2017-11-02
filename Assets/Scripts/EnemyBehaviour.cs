@@ -42,7 +42,7 @@ public class EnemyBehaviour : MonoBehaviour
             if (isPlayerDetected)
             {
                 playerSpotted++;
-                jump();
+                //jump();
                 speed = 5f;
                 enemyRenderer.material.color = Color.red;
                 targetWayPoint = playerBody.transform;
