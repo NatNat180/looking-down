@@ -30,25 +30,25 @@ public class EnemyBehaviour : MonoBehaviour
     {
         isPlayerDetected = false;
         enemyRay = new Ray(enemyBody.transform.position, transform.TransformDirection(Vector3.forward));
-        /* if rayCast location @ enemyBody position detects player collider */
+        /* if rayCast location @ enemyBody position detects player collider, set to true */
         if (Physics.Raycast(enemyRay, out rayHit) && rayHit.collider.tag.Equals("Player"))
         {
             isPlayerDetected = true;
         }
 
-        /* check that enemy has somewhere to move - that currentWayPoint iteration is less than wayPointList length */
+        /* check that currentWayPoint iteration is less than wayPointList length - that enemy has somewhere to move */
         if (currentWayPoint < this.wayPointList.Length)
         {
-            if (isPlayerDetected) 
+            if (isPlayerDetected)
             {
                 playerSpotted++;
                 jump();
                 speed = 5f;
                 enemyRenderer.material.color = Color.red;
-                targetDirection = playerBody.position - transform.position;
                 targetWayPoint = playerBody.transform;
+                targetDirection = playerBody.position - transform.position;
             }
-            else 
+            else
             {
                 playerSpotted = 0;
                 speed = 3f;
@@ -56,10 +56,10 @@ public class EnemyBehaviour : MonoBehaviour
                 targetWayPoint = wayPointList[currentWayPoint];
                 targetDirection = targetWayPoint.position - transform.position;
             }
-            
+
             move();
         }
-        else if (currentWayPoint >= this.wayPointList.Length)
+        else
         {
             currentWayPoint = 0;
         }
@@ -69,7 +69,7 @@ public class EnemyBehaviour : MonoBehaviour
     void move()
     {
         float step = speed * Time.deltaTime;
-        
+
         /* rotate towards the target */
         transform.forward = Vector3.RotateTowards(transform.forward, targetDirection, step, 0.0f);
 
@@ -84,16 +84,18 @@ public class EnemyBehaviour : MonoBehaviour
 
     }
 
+    /* jump animation for fun - will be removed later */
     void jump()
     {
-        if (playerSpotted <= 1) 
+        if (playerSpotted <= 1)
         {
             transform.Translate(0f, 0.5f, 0f);
-        } 
+        }
         else if (playerSpotted == 4)
         {
             transform.Translate(0f, -0.5f, 0f);
         }
+
     }
 
 }
