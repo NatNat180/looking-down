@@ -7,61 +7,93 @@ public class EnemyBehaviour : MonoBehaviour
     private Rigidbody enemyBody;
     private Renderer enemyRenderer;
     Ray enemyRay;
-	RaycastHit rayHit;
+    RaycastHit rayHit;
     public float speed;
     public Transform[] wayPointList;
     public int currentWayPoint = 0;
     Transform targetWayPoint;
+    Vector3 targetDirection;
+    bool isPlayerDetected;
+    public Rigidbody playerBody;
+    int playerSpotted;
 
     // Use this for initialization
     void Start()
     {
         enemyBody = GetComponent<Rigidbody>();
         enemyRenderer = enemyBody.GetComponent<Renderer>();
+        playerSpotted = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        isPlayerDetected = false;
         enemyRay = new Ray(enemyBody.transform.position, transform.TransformDirection(Vector3.forward));
         /* if rayCast location @ enemyBody position detects player collider */
         if (Physics.Raycast(enemyRay, out rayHit) && rayHit.collider.tag.Equals("Player"))
         {
-            /* change color of enemyRenderer */
-            enemyRenderer.material.color = Color.cyan;
-            /* move forward */
-            //transform.Translate(Vector3.forward * Time.deltaTime * 3);
-
-        }
-        else
-        {
-            enemyRenderer.material.color = Color.black;
+            isPlayerDetected = true;
         }
 
-        /* check that enemy has somewhere to move */
-        if (currentWayPoint < this.wayPointList.Length && targetWayPoint == null)
+        /* check that enemy has somewhere to move - that currentWayPoint iteration is less than wayPointList length */
+        if (currentWayPoint < this.wayPointList.Length)
         {
-            targetWayPoint = wayPointList[currentWayPoint];
+            if (isPlayerDetected) 
+            {
+                playerSpotted++;
+                jump();
+                speed = 5f;
+                enemyRenderer.material.color = Color.red;
+                targetDirection = playerBody.position - transform.position;
+                targetWayPoint = playerBody.transform;
+            }
+            else 
+            {
+                playerSpotted = 0;
+                speed = 3f;
+                enemyRenderer.material.color = Color.black;
+                targetWayPoint = wayPointList[currentWayPoint];
+                targetDirection = targetWayPoint.position - transform.position;
+            }
+            
             move();
         }
+        else if (currentWayPoint >= this.wayPointList.Length)
+        {
+            currentWayPoint = 0;
+        }
+
     }
 
     void move()
     {
-        Vector3 targetDirection = targetWayPoint.position - transform.position;
         float step = speed * Time.deltaTime;
+        
         /* rotate towards the target */
-        Vector3 lookDirection = Vector3.RotateTowards(transform.forward, targetDirection, step, 0.0f);
-        transform.rotation = Quaternion.LookRotation(lookDirection);
-        Debug.Log("transform forward = " + lookDirection);
+        transform.forward = Vector3.RotateTowards(transform.forward, targetDirection, step, 0.0f);
+
         /* move towards the target */
         transform.position = Vector3.MoveTowards(transform.position, targetWayPoint.position, step);
-        Debug.Log("transform position = " + transform.position);
-        Debug.Log("target waypoint = " + targetWayPoint.position);
+
         if (transform.position == targetWayPoint.position)
         {
             currentWayPoint++;
             targetWayPoint = wayPointList[currentWayPoint];
         }
+
     }
+
+    void jump()
+    {
+        if (playerSpotted <= 1) 
+        {
+            transform.Translate(0f, 0.5f, 0f);
+        } 
+        else if (playerSpotted == 4)
+        {
+            transform.Translate(0f, -0.5f, 0f);
+        }
+    }
+
 }
