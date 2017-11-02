@@ -52,7 +52,7 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 playerSpotted = 0;
                 speed = 3f;
-                enemyRenderer.material.color = Color.black;
+                enemyRenderer.material.color = Color.green;
                 targetWayPoint = wayPointList[currentWayPoint];
                 targetDirection = targetWayPoint.position - transform.position;
             }
