@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FlameLight : MonoBehaviour {
+public class FlameLight : MonoBehaviour
+{
     public ParticleSystem flame;
     public Text win;
-    private string winText = "YOU WON!!!" ;
- 
-   void OnCollisionEnter(Collision col)
+    private string winText = "YOU WON!!!";
+
+    void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == ("Player") && (TorchGrab.torchGrabbed == true))
         {
@@ -16,5 +17,5 @@ public class FlameLight : MonoBehaviour {
             win.text = winText;
         }
     }
-       
+
 }
