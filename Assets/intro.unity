@@ -705,6 +705,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1756511745301024, guid: 03a088c14cebadb4f91cb72a4bc3ba88, type: 2}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03a088c14cebadb4f91cb72a4bc3ba88, type: 2}
   m_IsPrefabParent: 0
@@ -1089,27 +1093,15 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 467106565}
-  - component: {fileID: 1328843169}
   - component: {fileID: 1328843170}
   - component: {fileID: 1328843171}
   m_Layer: 0
-  m_Name: torch prefab
+  m_Name: Torch Prefab
   m_TagString: torch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1328843169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1328843168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 732ab1e8ab54c3848bbf0998692b1016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1328843170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1726,7 +1718,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1620863588380978, guid: 2538b684ba9b2fe4b9d8e282544cbf35, type: 2}
       propertyPath: m_Name
-      value: torch pedestal
+      value: Torch Pedestal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2538b684ba9b2fe4b9d8e282544cbf35, type: 2}
