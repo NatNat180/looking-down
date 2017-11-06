@@ -5,17 +5,16 @@ using UnityEngine.UI;
 
 public class FlameLight : MonoBehaviour {
     public ParticleSystem flame;
-
     public Text win;
     private string winText = "YOU WON!!!" ;
  
    void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == ("Player") & (torchGrab1.torchGrabbed == true))
+        if (col.gameObject.tag == ("Player") && (TorchGrab.torchGrabbed == true))
         {
             flame.Play(true);
-            win.text = "You Won";
+            win.text = winText;
         }
     }
-   
+       
 }
