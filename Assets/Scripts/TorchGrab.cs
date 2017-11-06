@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class torchGrab1 : MonoBehaviour {
+public class TorchGrab : MonoBehaviour {
     public Transform player;
     public static bool torchGrabbed ;
     // Use this for initialization
