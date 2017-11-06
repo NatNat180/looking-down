@@ -12,12 +12,12 @@ public class TorchGrab : MonoBehaviour {
 	}
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag== ("Player"))
+        if (col.gameObject.tag == ("Player"))
         {
             torchGrabbed = true;
             Debug.Log("hit");
             transform.parent = player.transform;
-        };
+        }
     }
     // Update is called once per frame
     void Update () {
