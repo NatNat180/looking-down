@@ -29,4 +29,10 @@ public class MainCharacterController : MonoBehaviour
         transform.Rotate(Vector3.up * rotationSpeed * rotate * Time.deltaTime);
 
     }
+
+    protected void LateUpdate()
+    {
+        transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
+        transform.localPosition = new Vector3(transform.localPosition.x, 0.75f, transform.localPosition.z);
+    }
 }
