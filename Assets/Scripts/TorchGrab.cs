@@ -16,12 +16,13 @@ public class TorchGrab : MonoBehaviour
         if (col.gameObject.tag == ("Player"))
         {
             torchGrabbed = true;
-            Debug.Log("hit");
             transform.parent = player.transform;
+
         }
     }
     // Update is called once per frame
     void Update()
     {
+
     }
 }

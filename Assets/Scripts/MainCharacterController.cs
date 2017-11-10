@@ -28,10 +28,5 @@ public class MainCharacterController : MonoBehaviour
         character.velocity = transform.forward * moveSpeed * move;
         transform.Rotate(Vector3.up * rotationSpeed * rotate * Time.deltaTime);
 
-        if (characterCollider.gameObject == goal)
-        {
-            Debug.Log("You won!");
-        }
-
     }
 }
