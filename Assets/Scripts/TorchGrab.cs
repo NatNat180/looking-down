@@ -17,6 +17,8 @@ public class TorchGrab : MonoBehaviour
         {
             torchGrabbed = true;
             transform.parent = player.transform;
+            /* change Torch Prefab tag to 'Player' for added Enemy detection */
+            gameObject.tag = "Player";
 
         }
     }
