@@ -1850,7 +1850,7 @@ Canvas:
   m_GameObject: {fileID: 1554056003}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 2083949544}
   m_PlaneDistance: 2
   m_PixelPerfect: 0
@@ -2002,6 +2002,7 @@ GameObject:
   - component: {fileID: 1778292869}
   - component: {fileID: 1778292871}
   - component: {fileID: 1778292870}
+  - component: {fileID: 1778292872}
   m_Layer: 5
   m_Name: Minimap Image
   m_TagString: Untagged
@@ -2022,10 +2023,10 @@ RectTransform:
   m_Father: {fileID: 1554056007}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 381, y: -99}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -122, y: 126}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1778292870
 MonoBehaviour:
@@ -2059,6 +2060,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1778292868}
+--- !u!114 &1778292872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1778292868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 3, y: 3}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1821341605
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,12 +2148,12 @@ Prefab:
     - target: {fileID: 65809791012960252, guid: 04fbc2354f2c2774da30590edf4c9239,
         type: 2}
       propertyPath: m_Size.x
-      value: 0.49283934
+      value: 1.8069606
       objectReference: {fileID: 0}
     - target: {fileID: 65809791012960252, guid: 04fbc2354f2c2774da30590edf4c9239,
         type: 2}
       propertyPath: m_Center.x
-      value: -0.25358033
+      value: -0.91064095
       objectReference: {fileID: 0}
     - target: {fileID: 65809791012960252, guid: 04fbc2354f2c2774da30590edf4c9239,
         type: 2}
