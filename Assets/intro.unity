@@ -610,8 +610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd801559eae7ba84e9c89fd9ed9d4ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flame: {fileID: 1656985161}
-  win: {fileID: 1841033073}
 --- !u!65 &791973136
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1419,7 +1417,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1001 &1506036029
 Prefab:
@@ -1654,11 +1652,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!198 &1656985161 stripped
-ParticleSystem:
-  m_PrefabParentObject: {fileID: 198197499388192016, guid: 2538b684ba9b2fe4b9d8e282544cbf35,
-    type: 2}
-  m_PrefabInternal: {fileID: 1723984424}
 --- !u!1001 &1723984424
 Prefab:
   m_ObjectHideFlags: 0
