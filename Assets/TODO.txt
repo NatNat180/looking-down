@@ -4,4 +4,6 @@ Problem is, the torch can get in the way of the player and the enemy detects not
 This is because even though the torch can be tagged as "Player", it's still not a rigidbody.
 If you make it a rigidbody, all sorts of unwanted physics occur. We need to resolve this.
 
-2. The player controls are still a bit wonky, with the player slowly rotating or moving without pressing anything. 
+2. The player controls are still a bit wonky, with the player slowly rotating or moving without pressing anything.
+
+3. The torch pedestal no longer lights for some reason, but this may not be as big of a concern since we'll likely remove these objects as the game progresses.  
