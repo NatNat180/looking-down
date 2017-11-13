@@ -1499,6 +1499,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1088715372691616, guid: 6a1ad949a1391a7448962ecf153c2b9e, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711492776448844, guid: 6a1ad949a1391a7448962ecf153c2b9e, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a1ad949a1391a7448962ecf153c2b9e, type: 2}
   m_IsPrefabParent: 0
@@ -1764,7 +1772,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 1792
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 805dcc79ef810504683cd30851838955, type: 2}
   m_TargetDisplay: 0
@@ -1803,7 +1811,7 @@ GameObject:
   - component: {fileID: 467106565}
   - component: {fileID: 1328843170}
   - component: {fileID: 1328843171}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Torch Prefab
   m_TagString: torch
   m_Icon: {fileID: 0}
@@ -1846,7 +1854,7 @@ GameObject:
   - component: {fileID: 1338915338}
   - component: {fileID: 1338915337}
   - component: {fileID: 1338915336}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2458,6 +2466,26 @@ Prefab:
     - target: {fileID: 1620863588380978, guid: 2538b684ba9b2fe4b9d8e282544cbf35, type: 2}
       propertyPath: m_Name
       value: Torch Pedestal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773439952024392, guid: 2538b684ba9b2fe4b9d8e282544cbf35, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499949566962138, guid: 2538b684ba9b2fe4b9d8e282544cbf35, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531528050916850, guid: 2538b684ba9b2fe4b9d8e282544cbf35, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1592898688124222, guid: 2538b684ba9b2fe4b9d8e282544cbf35, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620863588380978, guid: 2538b684ba9b2fe4b9d8e282544cbf35, type: 2}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2538b684ba9b2fe4b9d8e282544cbf35, type: 2}
