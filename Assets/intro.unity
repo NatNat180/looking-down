@@ -798,6 +798,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04fbc2354f2c2774da30590edf4c9239, type: 2}
   m_IsPrefabParent: 0
+--- !u!198 &514374118 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198197499388192016, guid: 2538b684ba9b2fe4b9d8e282544cbf35,
+    type: 2}
+  m_PrefabInternal: {fileID: 1723984424}
 --- !u!1 &559355859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd801559eae7ba84e9c89fd9ed9d4ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flame: {fileID: 514374118}
+  win: {fileID: 1841033073}
 --- !u!65 &791973136
 BoxCollider:
   m_ObjectHideFlags: 0
