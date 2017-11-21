@@ -5,34 +5,52 @@ using UnityEngine;
 public class MainCharacterController : MonoBehaviour
 {
 
+    private float moveInput;
+    private float rotateInput;
     public float moveSpeed;
     public float rotationSpeed;
     private Rigidbody character;
     private Collider characterCollider;
     public GameObject goal;
 
-    // Use this for initialization
     void Start()
     {
         character = GetComponent<Rigidbody>();
         characterCollider = GetComponent<Collider>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
-        float rotate = Input.GetAxis("Horizontal");
-        float move = Input.GetAxis("Vertical");
-
-        character.velocity = transform.forward * moveSpeed * move;
-        transform.Rotate(Vector3.up * rotationSpeed * rotate * Time.deltaTime);
+        moveInput = Input.GetAxis("Vertical");
+        rotateInput = Input.GetAxis("Horizontal");
 
     }
 
-    protected void LateUpdate()
+    private void FixedUpdate()
     {
-        transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
-        transform.localPosition = new Vector3(transform.localPosition.x, 0.75f, transform.localPosition.z);
+        Move();
+        Rotate();
+    }
+
+    private void Move()
+    {
+        // Create a vector in the direction the character is facing with a magnitude based on the input, speed and time between frames
+        Vector3 movement = transform.forward * moveInput * moveSpeed * Time.deltaTime;
+
+        // Apply this movement to the rigidbody's position
+        character.MovePosition(character.position + movement);
+    }
+
+    private void Rotate() 
+    {
+        // Determine the number of degrees to be turned based on the input, speed and time between frames 
+        float rotate = rotateInput * rotationSpeed * Time.deltaTime;
+
+        // Make this into a rotation in the y-axis
+        Quaternion turnRotation = Quaternion.Euler(0, rotate, 0);
+
+        // Apply this rotation to the rigidbody's rotation
+        character.MoveRotation(character.rotation * turnRotation);
     }
 }
