@@ -21,10 +21,8 @@ public class MainCharacterController : MonoBehaviour
 
     void Update()
     {
-
         moveInput = Input.GetAxis("Vertical");
         rotateInput = Input.GetAxis("Horizontal");
-
     }
 
     private void FixedUpdate()
