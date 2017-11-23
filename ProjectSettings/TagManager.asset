@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - torch
+  - wall
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Minimap
+  - Walls
+  - Torches
   - 
   - 
   - 
