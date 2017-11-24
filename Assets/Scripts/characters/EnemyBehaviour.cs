@@ -27,7 +27,8 @@ public class EnemyBehaviour : MonoBehaviour
     void Update()
     {
         isPlayerDetected = false;
-        enemyRay = new Ray(enemyBody.transform.position, transform.TransformDirection(Vector3.forward));
+        // Make enemy line-of-sight slightly higher than default position
+        enemyRay = new Ray((enemyBody.transform.position + Vector3.up / 2), transform.TransformDirection(Vector3.forward));
         if (Physics.Raycast(enemyRay, out rayHit) && rayHit.collider.tag.Equals("Player"))
         {
             isPlayerDetected = true;

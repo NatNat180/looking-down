@@ -11,12 +11,13 @@ public class MainCharacterController : MonoBehaviour
     public float rotationSpeed;
     private Rigidbody character;
     private Collider characterCollider;
-    public GameObject goal;
+    private Vector3 characterNormalScale;
 
     void Start()
     {
         character = GetComponent<Rigidbody>();
         characterCollider = GetComponent<Collider>();
+        characterNormalScale = transform.localScale;
     }
 
     void Update()
@@ -29,6 +30,7 @@ public class MainCharacterController : MonoBehaviour
     {
         Move();
         Rotate();
+        Crouch();
     }
 
     private void Move()
@@ -50,5 +52,15 @@ public class MainCharacterController : MonoBehaviour
 
         // Apply this rotation to the rigidbody's rotation
         character.MoveRotation(character.rotation * turnRotation);
+    }
+
+    private void Crouch()
+    {
+        if (Input.GetButtonUp("Crouch"))
+            transform.localScale = characterNormalScale;
+        
+        if (Input.GetButton("Crouch"))
+            // Transform local scale of player - decrement half of y-axis
+            transform.localScale = characterNormalScale + Vector3.down / 2;
     }
 }
