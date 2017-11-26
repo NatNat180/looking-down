@@ -12,6 +12,7 @@ public class MainCharacterController : MonoBehaviour
     private Rigidbody character;
     private Collider characterCollider;
     private Vector3 characterNormalScale;
+    public GameObject PlayerTorch;
 
     void Start()
     {
@@ -22,6 +23,8 @@ public class MainCharacterController : MonoBehaviour
 
     void Update()
     {
+        TorchGrabDetect();
+        Crouch();
         moveInput = Input.GetAxis("Vertical");
         rotateInput = Input.GetAxis("Horizontal");
     }
@@ -30,7 +33,14 @@ public class MainCharacterController : MonoBehaviour
     {
         Move();
         Rotate();
-        Crouch();
+        //Crouch();
+    }
+    private void TorchGrabDetect()
+    {
+        if (TorchGrab.torchGrabbed == true)
+        {
+            PlayerTorch.SetActive(true);
+        }
     }
 
     private void Move()
