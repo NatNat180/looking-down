@@ -36,8 +36,8 @@ public class MainCharacterController : MonoBehaviour
     {
         Move();
         Rotate();
-        //Crouch();
     }
+    
     private void TorchGrabDetect()
     {
         if (TorchGrab.torchGrabbed == true)
