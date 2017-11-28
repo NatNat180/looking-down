@@ -89,7 +89,7 @@ public class MainCharacterController : MonoBehaviour
 
     private void Move()
     {
-        // Default movement and scale
+        // Default movement and scale (a.k.a Explore movement mode)
         Vector3 movement = transform.forward * moveInput * moveSpeed * Time.deltaTime;
         transform.localScale = characterNormalScale;
 
