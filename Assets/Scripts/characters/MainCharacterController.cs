@@ -46,44 +46,7 @@ public class MainCharacterController : MonoBehaviour
         }
     }
 
-    private void Move()
-    {
-        // Default movement and scale
-        Vector3 movement = transform.forward * moveInput * moveSpeed * Time.deltaTime;
-        transform.localScale = characterNormalScale;
-
-        // Determine current movement mode to set movement speed and scale of character
-        if (movementMode == MovementOptions.Run)
-        {
-            // Create a vector in the direction the character is facing with a magnitude based on the input, speed and time between frames
-            movement = transform.forward * moveInput * (moveSpeed * 2) * Time.deltaTime;
-        }
-        else if (movementMode == MovementOptions.Crouch)
-        {
-            // Create a vector in the direction the character is facing with a magnitude based on the input, speed and time between frames
-            movement = transform.forward * moveInput * (moveSpeed / 2) * Time.deltaTime;
-            // Reduce y-axis local scale
-            transform.localScale = characterNormalScale + Vector3.down / 2;
-        }
-
-        // Apply movement to the rigidbody's position
-        character.MovePosition(character.position + movement);
-
-    }
-
-    private void Rotate()
-    {
-        // Determine the number of degrees to be turned based on the input, speed and time between frames 
-        float rotate = rotateInput * rotationSpeed * Time.deltaTime;
-
-        // Make this into a rotation in the y-axis
-        Quaternion turnRotation = Quaternion.Euler(0, rotate, 0);
-
-        // Apply this rotation to the rigidbody's rotation
-        character.MoveRotation(character.rotation * turnRotation);
-    }
-    
-    private void ChooseMovementMode()
+        private void ChooseMovementMode()
     {
         MovementOptions currentMovementMode = movementMode;
         Debug.Log("Current movement mode = " + currentMovementMode);
@@ -123,4 +86,42 @@ public class MainCharacterController : MonoBehaviour
             }
         }
     }
+
+    private void Move()
+    {
+        // Default movement and scale
+        Vector3 movement = transform.forward * moveInput * moveSpeed * Time.deltaTime;
+        transform.localScale = characterNormalScale;
+
+        // Determine current movement mode to set movement speed and scale of character
+        if (movementMode == MovementOptions.Run)
+        {
+            // Create a vector in the direction the character is facing with a magnitude based on the input, speed and time between frames
+            movement = transform.forward * moveInput * (moveSpeed * 2) * Time.deltaTime;
+        }
+        else if (movementMode == MovementOptions.Crouch)
+        {
+            // Create a vector in the direction the character is facing with a magnitude based on the input, speed and time between frames
+            movement = transform.forward * moveInput * (moveSpeed / 2) * Time.deltaTime;
+            // Reduce y-axis local scale
+            transform.localScale = characterNormalScale + Vector3.down / 2;
+        }
+
+        // Apply movement to the rigidbody's position
+        character.MovePosition(character.position + movement);
+
+    }
+
+    private void Rotate()
+    {
+        // Determine the number of degrees to be turned based on the input, speed and time between frames 
+        float rotate = rotateInput * rotationSpeed * Time.deltaTime;
+
+        // Make this into a rotation in the y-axis
+        Quaternion turnRotation = Quaternion.Euler(0, rotate, 0);
+
+        // Apply this rotation to the rigidbody's rotation
+        character.MoveRotation(character.rotation * turnRotation);
+    }
+    
 }
