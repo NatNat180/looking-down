@@ -12,7 +12,7 @@ public class MainCharacterController : MonoBehaviour
     private Rigidbody character;
     private Collider characterCollider;
     private Vector3 characterNormalScale;
-    public GameObject PlayerTorch;
+    public GameObject playerTorch;
     private enum MovementOptions { Crouch, Explore, Run };
     private MovementOptions movementMode;
 
@@ -42,7 +42,7 @@ public class MainCharacterController : MonoBehaviour
     {
         if (TorchGrab.torchGrabbed == true)
         {
-            PlayerTorch.SetActive(true);
+            playerTorch.SetActive(true);
         }
     }
 
