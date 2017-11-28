@@ -37,7 +37,7 @@ public class MainCharacterController : MonoBehaviour
         Move();
         Rotate();
     }
-    
+
     private void TorchGrabDetect()
     {
         if (TorchGrab.torchGrabbed == true)
@@ -46,7 +46,7 @@ public class MainCharacterController : MonoBehaviour
         }
     }
 
-        private void ChooseMovementMode()
+    private void ChooseMovementMode()
     {
         MovementOptions currentMovementMode = movementMode;
         Debug.Log("Current movement mode = " + currentMovementMode);
@@ -123,5 +123,5 @@ public class MainCharacterController : MonoBehaviour
         // Apply this rotation to the rigidbody's rotation
         character.MoveRotation(character.rotation * turnRotation);
     }
-    
+
 }
