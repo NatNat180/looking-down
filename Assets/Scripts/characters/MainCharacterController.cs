@@ -109,7 +109,6 @@ public class MainCharacterController : MonoBehaviour
 
         // Apply movement to the rigidbody's position
         character.MovePosition(character.position + movement);
-
     }
 
     private void Rotate()
