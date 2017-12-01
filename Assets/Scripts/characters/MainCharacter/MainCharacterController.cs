@@ -13,8 +13,7 @@ public class MainCharacterController : MonoBehaviour
     private Collider characterCollider;
     private Vector3 characterNormalScale;
     public GameObject PlayerTorch;
-    private enum MovementOptions { Crouch, Explore, Run };
-    private MovementOptions movementMode;
+    public static MovementOptions movementMode;
 
     void Start()
     {
@@ -49,7 +48,7 @@ public class MainCharacterController : MonoBehaviour
     private void ChooseMovementMode()
     {
         MovementOptions currentMovementMode = movementMode;
-        Debug.Log("Current movement mode = " + currentMovementMode);
+        //Debug.Log("Current movement mode = " + currentMovementMode);
         if (Input.GetButtonDown("ToggleMovementModeRight"))
         {
             switch (currentMovementMode)
@@ -86,7 +85,7 @@ public class MainCharacterController : MonoBehaviour
             }
         }
     }
-
+    
     private void Move()
     {
         // Default movement and scale (a.k.a Explore movement mode)
@@ -113,7 +112,7 @@ public class MainCharacterController : MonoBehaviour
 
     private void Rotate()
     {
-        // Determine the number of degrees to be turned based on the input, speed and time between frames 
+        // Determine the number of degrees to be turned based on the input, speed and time between frames
         float rotate = rotateInput * rotationSpeed * Time.deltaTime;
 
         // Make this into a rotation in the y-axis
