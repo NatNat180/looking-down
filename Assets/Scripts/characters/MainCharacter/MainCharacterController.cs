@@ -48,7 +48,7 @@ public class MainCharacterController : MonoBehaviour
     private void ChooseMovementMode()
     {
         MovementOptions currentMovementMode = movementMode;
-        //Debug.Log("Current movement mode = " + currentMovementMode);
+        Debug.Log("Current movement mode = " + currentMovementMode);
         if (Input.GetButtonDown("ToggleMovementModeRight"))
         {
             switch (currentMovementMode)
