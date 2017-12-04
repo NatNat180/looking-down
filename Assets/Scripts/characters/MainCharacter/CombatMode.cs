@@ -2,24 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExploreMode : MonoBehaviour, PlayMode
+public class CombatMode : MonoBehaviour, PlayMode
 {
 
-    // Use this for initialization
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
     }
-
     void FixedUpdate()
     {
-        if (isExploring())
+        if (isInCombatMode())
         {
 			Swift();
 			Steady();
@@ -28,9 +25,9 @@ public class ExploreMode : MonoBehaviour, PlayMode
         }
     }
 
-    private bool isExploring()
+    private bool isInCombatMode()
     {
-        return MainCharacterController.playMode.Equals(PlayOptions.Explore);
+        return MainCharacterController.playMode.Equals(PlayOptions.Combat);
     }
 
 	/* hold button options */

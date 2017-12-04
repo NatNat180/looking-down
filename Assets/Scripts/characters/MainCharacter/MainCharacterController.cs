@@ -13,20 +13,20 @@ public class MainCharacterController : MonoBehaviour
     private Collider characterCollider;
     private Vector3 characterNormalScale;
     public GameObject PlayerTorch;
-    public static MovementOptions movementMode;
+    public static PlayOptions playMode;
 
     void Start()
     {
         character = GetComponent<Rigidbody>();
         characterCollider = GetComponent<Collider>();
         characterNormalScale = transform.localScale;
-        movementMode = MovementOptions.Explore;
+        playMode = PlayOptions.Explore;
     }
 
     void Update()
     {
         TorchGrabDetect();
-        ChooseMovementMode();
+        ChoosePlayMode();
         moveInput = Input.GetAxis("Vertical");
         rotateInput = Input.GetAxis("Horizontal");
     }
@@ -45,42 +45,42 @@ public class MainCharacterController : MonoBehaviour
         }
     }
 
-    private void ChooseMovementMode()
+    private void ChoosePlayMode()
     {
-        MovementOptions currentMovementMode = movementMode;
-        Debug.Log("Current movement mode = " + currentMovementMode);
-        if (Input.GetButtonDown("ToggleMovementModeRight"))
+        PlayOptions currentPlayMode = playMode;
+        Debug.Log("Current play mode = " + currentPlayMode);
+        if (Input.GetButtonDown("TogglePlayModeRight"))
         {
-            switch (currentMovementMode)
+            switch (currentPlayMode)
             {
-                case MovementOptions.Explore:
-                    movementMode = MovementOptions.Run;
+                case PlayOptions.Explore:
+                    playMode = PlayOptions.Combat;
                     break;
 
-                case MovementOptions.Crouch:
-                    movementMode = MovementOptions.Explore;
+                case PlayOptions.Sneak:
+                    playMode = PlayOptions.Explore;
                     break;
 
-                case MovementOptions.Run:
-                    movementMode = MovementOptions.Crouch;
+                case PlayOptions.Combat:
+                    playMode = PlayOptions.Sneak;
                     break;
             }
         }
 
-        if (Input.GetButtonDown("ToggleMovementModeLeft"))
+        if (Input.GetButtonDown("TogglePlayModeLeft"))
         {
-            switch (currentMovementMode)
+            switch (currentPlayMode)
             {
-                case MovementOptions.Explore:
-                    movementMode = MovementOptions.Crouch;
+                case PlayOptions.Explore:
+                    playMode = PlayOptions.Sneak;
                     break;
 
-                case MovementOptions.Crouch:
-                    movementMode = MovementOptions.Run;
+                case PlayOptions.Sneak:
+                    playMode = PlayOptions.Combat;
                     break;
 
-                case MovementOptions.Run:
-                    movementMode = MovementOptions.Explore;
+                case PlayOptions.Combat:
+                    playMode = PlayOptions.Explore;
                     break;
             }
         }
@@ -92,13 +92,13 @@ public class MainCharacterController : MonoBehaviour
         Vector3 movement = transform.forward * moveInput * moveSpeed * Time.deltaTime;
         transform.localScale = characterNormalScale;
 
-        // Determine current movement mode to set movement speed and scale of character
-        if (movementMode == MovementOptions.Run)
+        // Determine current play mode to set movement speed and scale of character
+        if (playMode == PlayOptions.Combat)
         {
             // Create a vector in the direction the character is facing with a magnitude based on the input, speed and time between frames
             movement = transform.forward * moveInput * (moveSpeed * 2) * Time.deltaTime;
         }
-        else if (movementMode == MovementOptions.Crouch)
+        else if (playMode == PlayOptions.Sneak)
         {
             // Create a vector in the direction the character is facing with a magnitude based on the input, speed and time between frames
             movement = transform.forward * moveInput * (moveSpeed / 2) * Time.deltaTime;
