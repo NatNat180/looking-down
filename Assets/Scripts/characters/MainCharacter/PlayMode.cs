@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface PlayMode {
+public interface PlayMode
+{
 
-	/* hold button options */
-	void Swift();
+    /* hold button options */
+    void Swift();
 
     void Steady();
 
-	/* press button options */
+    /* press button options */
     void Vault();
 
-	void Action();
+    void Action();
 }

@@ -21,9 +21,9 @@ public class ExploreMode : MonoBehaviour, PlayMode
     {
         if (isExploring())
         {
-			Swift();
-			Steady();
-			Vault();
+            Swift();
+            Steady();
+            Vault();
             Action();
         }
     }
@@ -33,8 +33,8 @@ public class ExploreMode : MonoBehaviour, PlayMode
         return MainCharacterController.playMode.Equals(PlayOptions.Explore);
     }
 
-	/* hold button options */
-	public void Swift()
+    /* hold button options */
+    public void Swift()
     {
         if (Input.GetButton("Swift"))
         {
@@ -50,7 +50,7 @@ public class ExploreMode : MonoBehaviour, PlayMode
         }
     }
 
-	/* press button options */
+    /* press button options */
     public void Vault()
     {
         if (Input.GetButtonDown("Vault"))
@@ -59,7 +59,7 @@ public class ExploreMode : MonoBehaviour, PlayMode
         }
     }
 
-	public void Action()
+    public void Action()
     {
         if (Input.GetButtonDown("Action"))
         {

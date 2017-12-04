@@ -19,9 +19,9 @@ public class SneakMode : MonoBehaviour, PlayMode
     {
         if (isSneaking())
         {
-			Swift();
-			Steady();
-			Vault();
+            Swift();
+            Steady();
+            Vault();
             Action();
         }
     }
@@ -31,8 +31,8 @@ public class SneakMode : MonoBehaviour, PlayMode
         return MainCharacterController.playMode.Equals(PlayOptions.Sneak);
     }
 
-	/* hold button options */
-	public void Swift()
+    /* hold button options */
+    public void Swift()
     {
         if (Input.GetButton("Swift"))
         {
@@ -48,7 +48,7 @@ public class SneakMode : MonoBehaviour, PlayMode
         }
     }
 
-	/* press button options */
+    /* press button options */
     public void Vault()
     {
         if (Input.GetButtonDown("Vault"))
@@ -57,7 +57,7 @@ public class SneakMode : MonoBehaviour, PlayMode
         }
     }
 
-	public void Action()
+    public void Action()
     {
         if (Input.GetButtonDown("Action"))
         {

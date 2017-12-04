@@ -18,9 +18,9 @@ public class CombatMode : MonoBehaviour, PlayMode
     {
         if (isInCombatMode())
         {
-			Swift();
-			Steady();
-			Vault();
+            Swift();
+            Steady();
+            Vault();
             Action();
         }
     }
@@ -30,8 +30,8 @@ public class CombatMode : MonoBehaviour, PlayMode
         return MainCharacterController.playMode.Equals(PlayOptions.Combat);
     }
 
-	/* hold button options */
-	public void Swift()
+    /* hold button options */
+    public void Swift()
     {
         if (Input.GetButton("Swift"))
         {
@@ -47,7 +47,7 @@ public class CombatMode : MonoBehaviour, PlayMode
         }
     }
 
-	/* press button options */
+    /* press button options */
     public void Vault()
     {
         if (Input.GetButtonDown("Vault"))
@@ -56,7 +56,7 @@ public class CombatMode : MonoBehaviour, PlayMode
         }
     }
 
-	public void Action()
+    public void Action()
     {
         if (Input.GetButtonDown("Action"))
         {
